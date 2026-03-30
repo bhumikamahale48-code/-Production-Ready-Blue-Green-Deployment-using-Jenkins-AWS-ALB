@@ -87,7 +87,7 @@ Successful Deployment (Healthy)
 Green deployment successful
 Target group health verified
 
-Traffic switched to Green
+# Traffic switched to Green
 
 <img width="852" height="441" alt="image" src="https://github.com/user-attachments/assets/f8cad911-e8a2-479d-87d3-0136c0a2e13a" />
 
@@ -121,24 +121,19 @@ Pipeline Failure
 
 Rollback to Blue Listener → Forward to Blue Target Group
 
-Deployment Flow
-
+ # Deployment Flow
 Code Checkout from GitHub
 Deploy to Green Server
 Wait for Target Registration
 Verify Target Group Health
 Switch Traffic to Green
 Automatic Rollback on Failure
-
 IAM Permissions Used
-
 Jenkins requires:
 
-elasticloadbalancing
-elasticloadbalancing
-
+elasticloadbalancing:DescribeTargetHealth
+elasticloadbalancing:ModifyListener
 Key Features
-
 ✔ Zero Downtime Deployment
 ✔ Automated Health Check Validation
 ✔ Instant Rollback
@@ -146,17 +141,13 @@ Key Features
 ✔ Production-Ready CI/CD Pipeline
 
 Interview Explanation
-
 In this architecture:
 
 Both Blue and Green environments remain healthy.
 Traffic switching is handled at ALB level.
 Rollback is automatic if health checks fail.
-
 This ensures high availability and reliability in production systems.
-
 Conclusion
-
 This project successfully demonstrates a real-world DevOps Blue-Green Deployment strategy using Jenkins and AWS infrastructure.
 
 It guarantees:
@@ -167,7 +158,14 @@ Instant Rollback
 High Reliability
 
 Author
-Bhumnika Devsing Mahale
+
+Bhumika Devsing Mahale
+
+
+
+
+
+
 
 
 
