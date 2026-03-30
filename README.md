@@ -1,92 +1,143 @@
-🚀 Production-Ready Blue-Green Deployment using Jenkins & AWS ALB
-📌 Project Overview
+Production-Ready Blue-Green Deployment using Jenkins & AWS ALB
+Project Overview
 
-This project demonstrates a production-grade Blue-Green Deployment strategy using:
+This project demonstrates a production-ready Blue-Green Deployment strategy using:
 
-Jenkins CI/CD Pipeline
-AWS EC2 Instances
+Jenkins CI/CD
+AWS EC2
 Application Load Balancer (ALB)
 Target Groups
-Nginx Web Server
-Automated Rollback Mechanism
+Nginx
+Automatic Rollback Mechanism
 
-The main objective is to achieve zero-downtime deployments with instant rollback capability.
+The goal is to achieve zero-downtime deployments with instant rollback capability.
 
-🏗️ Architecture Diagram (Concept)
-        Users
-          |
-          v
-       AWS ALB
-      /       \
- Blue-TG     Green-TG
-   |             |
- Blue EC2     Green EC2
-          |
-       Jenkins
-⚙️ Infrastructure Setup
-🖥️ EC2 Instances
+Infrastructure Setup
+EC2 Instances Running
 
-Three EC2 instances are used:
+Three servers are running:
 
-<img width="850" height="371" alt="image" src="https://github.com/user-attachments/assets/35419591-cef7-43a0-87c9-35527099536a" />
+Jenkins Server
+Blue Environment Server
+Green Environment Server
 
-Jenkins Server → CI/CD pipeline execution
-Blue Environment Server → Stable live environment
-Green Environment Server → New deployment environment
-
-❤️ Target Group Health
-
-Both environments stay healthy for safe switching:
-
-✅ Blue Target Group → Healthy
-
-<img width="849" height="328" alt="image" src="https://github.com/user-attachments/assets/947cfbe9-7566-4eef-9260-ec6110114b49" />
-
-✅ Green Target Group → Healthy
-
-<img width="843" height="366" alt="image" src="https://github.com/user-attachments/assets/efca3618-ccc8-49eb-bae0-ac05d0dada5d" />
+# EC2 Running
 
 
-This ensures:
+<img width="850" height="371" alt="image" src="https://github.com/user-attachments/assets/f8300ca5-50ca-474d-ae38-304cfdd169db" />
 
-Instant rollback
-High availability
-🌐 ALB Traffic Routing
-🔹 Before Deployment
-ALB → Routes traffic to Blue
-🔹 After Successful Deployment
-ALB → Switches traffic to Green
-🔹 On Failure
-ALB → Automatically routes back to Blue
-🧪 Application Output
-Blue Environment → Old Version
-Green Environment → New Version
-🔄 Jenkins Pipeline Flow
-Checkout Code from GitHub
+Target Group Health Status
+
+Both Blue and Green environments remain healthy.
+
+# Blue-TG → Healthy
+
+<img width="849" height="328" alt="image" src="https://github.com/user-attachments/assets/8359c63a-cbca-4c4c-8262-a97a053e47ca" />
+
+
+# Target Groups Healthy
+
+Green-TG → Healthy
+
+<img width="843" height="366" alt="image" src="https://github.com/user-attachments/assets/4e70aa4a-55aa-4a11-822b-f1ebae8cd93e" />
+
+
+Target Groups Healthy
+
+This ensures instant rollback capability.
+
+ALB Traffic Routing
+
+# Traffic Forwarded to Green
+
+<img width="842" height="341" alt="image" src="https://github.com/user-attachments/assets/f88eb916-85f8-4f4e-90cd-05073bb9350a" />
+
+
+ALB Forward Green
+
+Listener → Forward to Green Target Group
+
+ # Traffic Forwarded to Blue
+
+<img width="834" height="363" alt="image" src="https://github.com/user-attachments/assets/e6c0920a-cce5-4bad-af1b-1b834ab41731" />
+
+ALB Forward Green
+
+Listener → Forward to Green Target Group
+
+Application Output
+
+# Blue Environment Output
+
+<img width="771" height="297" alt="image" src="https://github.com/user-attachments/assets/d055c403-01f7-4234-97ab-785ca2ebdbb8" />
+
+
+Blue Output
+
+Green Environment Output
+
+# Green Output
+
+<img width="798" height="237" alt="image" src="https://github.com/user-attachments/assets/b9c5232a-1008-47b2-8ddd-87ca4627b17f" />
+
+
+Jenkins Pipeline Execution
+Successful Deployment (Healthy)
+
+Green deployment successful
+Target group health verified
+
+Traffic switched to Green
+
+<img width="852" height="441" alt="image" src="https://github.com/user-attachments/assets/f8cad911-e8a2-479d-87d3-0136c0a2e13a" />
+
+
+Pipeline Success
+
+Automatic Rollback Demonstration
+
+# Green-TG → Unhealthy
+
+<img width="852" height="388" alt="image" src="https://github.com/user-attachments/assets/ab119944-0124-4591-a8c5-55dcf682fadf" />
+
+
+Target Groups Healthy
+
+If Green fails health check:
+
+Jenkins detects failure
+Traffic automatically switches back to Blue
+Zero downtime maintained
+
+# Pipeline Failure (Unhealthy Green)
+
+<img width="850" height="425" alt="image" src="https://github.com/user-attachments/assets/9ec1112c-6f79-4c43-b203-02c68f9c7af0" />
+
+Pipeline Failure
+
+# Listener Forwarded Back to Blue
+
+<img width="786" height="250" alt="image" src="https://github.com/user-attachments/assets/ceca8d39-6c29-43aa-8c9f-11464a786506" />
+
+Rollback to Blue Listener → Forward to Blue Target Group
+
+Deployment Flow
+
+Code Checkout from GitHub
 Deploy to Green Server
 Wait for Target Registration
 Verify Target Group Health
 Switch Traffic to Green
-Monitor Deployment
-Rollback Automatically (if failure)
-✅ Successful Deployment
-Green environment becomes healthy
-Traffic switches to Green
-Deployment completed with zero downtime
-❌ Failure Scenario (Automatic Rollback)
+Automatic Rollback on Failure
 
-If Green fails health checks:
+IAM Permissions Used
 
-Jenkins detects failure
-ALB switches traffic back to Blue
-No user impact (zero downtime maintained)
-🔐 IAM Permissions Required
+Jenkins requires:
 
-Jenkins needs the following AWS permissions:
+elasticloadbalancing
+elasticloadbalancing
 
-elasticloadbalancing:DescribeTargetHealth
-elasticloadbalancing:ModifyListener
-⭐ Key Features
+Key Features
 
 ✔ Zero Downtime Deployment
 ✔ Automated Health Check Validation
@@ -94,32 +145,41 @@ elasticloadbalancing:ModifyListener
 ✔ High Availability
 ✔ Production-Ready CI/CD Pipeline
 
-🎯 Interview Explanation
-Both environments (Blue & Green) remain active
-Traffic switching happens at ALB level
-Health checks ensure only stable deployments go live
-Rollback is automatic and instant
+Interview Explanation
 
-👉 This architecture ensures:
+In this architecture:
 
-High availability
-Reliability
-Safe production deployments
-📊 Benefits
+Both Blue and Green environments remain healthy.
+Traffic switching is handled at ALB level.
+Rollback is automatic if health checks fail.
+
+This ensures high availability and reliability in production systems.
+
+Conclusion
+
+This project successfully demonstrates a real-world DevOps Blue-Green Deployment strategy using Jenkins and AWS infrastructure.
+
+It guarantees:
+
 Continuous Delivery
-Risk-Free Releases
-Fast Recovery from Failures
-Scalable Architecture
-🧾 Conclusion
+Safe Deployments
+Instant Rollback
+High Reliability
 
-This project successfully demonstrates a real-world DevOps deployment strategy using AWS and Jenkins.
+Author
+Bhumnika Devsing Mahale
 
-It ensures:
 
-🚀 Continuous Delivery
-🔄 Safe Deployments
-⚡ Instant Rollback
-🛡️ High Reliability
-👨‍💻 Author
 
-Riyaj Jamir Kalawant
+
+
+
+
+Languages
+
+HTML 100.0%
+
+© 2026 GitHub, Inc.
+
+Ata ha directly copy-paste kar GitHub README.md madhe — perfect disel 👍
+Jar hav tar mi thoda professional UI + badges + diagram version pan banavun deu shakto.
