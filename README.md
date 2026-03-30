@@ -1,4 +1,4 @@
-Production-Ready Blue-Green Deployment using Jenkins & AWS ALB
+# Production-Ready Blue-Green Deployment using Jenkins & AWS ALB
 Project Overview
 
 This project demonstrates a production-ready Blue-Green Deployment strategy using:
