@@ -39,7 +39,13 @@ Green Environment Server → New deployment environment
 Both environments stay healthy for safe switching:
 
 ✅ Blue Target Group → Healthy
+
+<img width="849" height="328" alt="image" src="https://github.com/user-attachments/assets/947cfbe9-7566-4eef-9260-ec6110114b49" />
+
 ✅ Green Target Group → Healthy
+
+<img width="843" height="366" alt="image" src="https://github.com/user-attachments/assets/efca3618-ccc8-49eb-bae0-ac05d0dada5d" />
+
 
 This ensures:
 
