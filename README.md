@@ -140,7 +140,7 @@ Key Features
 ✔ High Availability
 ✔ Production-Ready CI/CD Pipeline
 
-Interview Explanation
+# Interview Explanation
 In this architecture:
 
 Both Blue and Green environments remain healthy.
@@ -150,14 +150,14 @@ This ensures high availability and reliability in production systems.
 Conclusion
 This project successfully demonstrates a real-world DevOps Blue-Green Deployment strategy using Jenkins and AWS infrastructure.
 
-It guarantees:
+# It guarantees:
 
 Continuous Delivery
 Safe Deployments
 Instant Rollback
 High Reliability
 
-Author
+# Author
 
 Bhumika Devsing Mahale
 
