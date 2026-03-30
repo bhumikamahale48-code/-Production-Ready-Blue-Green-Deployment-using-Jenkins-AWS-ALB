@@ -173,11 +173,3 @@ Bhumika Devsing Mahale
 
 
 
-Languages
-
-HTML 100.0%
-
-© 2026 GitHub, Inc.
-
-Ata ha directly copy-paste kar GitHub README.md madhe — perfect disel 👍
-Jar hav tar mi thoda professional UI + badges + diagram version pan banavun deu shakto.
