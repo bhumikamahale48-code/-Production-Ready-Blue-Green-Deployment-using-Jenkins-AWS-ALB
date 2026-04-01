@@ -89,7 +89,8 @@ Target group health verified
 
 # Traffic switched to Green
 
-<img width="852" height="441" alt="image" src="https://github.com/user-attachments/assets/f8cad911-e8a2-479d-87d3-0136c0a2e13a" />
+<img width="848" height="432" alt="image" src="https://github.com/user-attachments/assets/738d5479-5ac6-45ef-8bf6-330aa8fd4f0e" />
+
 
 
 Pipeline Success
